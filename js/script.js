@@ -195,6 +195,13 @@ const app = createApp({
                 status: 'sent'
             }),
             this.inputMessage = '';
+            setTimeout(()=>{
+                this.contacts[this.activeChat.id].messages.push({
+                    date: 'ora',
+                    message: 'ok',
+                    status: 'received'
+                });
+            }, 1000);
         }
     },
     mounted(){
