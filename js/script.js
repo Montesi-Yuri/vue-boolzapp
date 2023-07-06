@@ -7,6 +7,7 @@ const { createApp } = Vue;
 const app = createApp({
     data(){
         return{
+            inputMessage: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -174,6 +175,7 @@ const app = createApp({
                 id: 0,
                 name: 'Michele',
                 avatar: './img/avatar_1.jpg',
+                messages: []
             }
         }
     },
@@ -181,12 +183,18 @@ const app = createApp({
         showChat(index){
             this.contacts[this.activeChat.id].visible = false;
             this.contacts[index].visible = true;
-
             this.activeChat.id = index;
             this.activeChat.name = this.contacts[index].name;
             this.activeChat.avatar = this.contacts[index].avatar;
-
             console.log('cliccata chat')
+        },
+        newMessage(){
+            this.contacts[this.activeChat.id].messages.push({
+                date: 'ora',
+                message: this.inputMessage,
+                status: 'sent'
+            }),
+            this.inputMessage = '';
         }
     },
     mounted(){

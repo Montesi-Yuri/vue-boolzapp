@@ -149,7 +149,7 @@
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
                         
-                        <input type="text" class="form-control col" placeholder="scrivi un messaggio" aria-label="Username" aria-describedby="basic-addon1">  
+                        <input @keyup.enter="newMessage()" type="text" v-model="inputMessage" class="form-control col" placeholder="scrivi un messaggio" aria-label="Username" aria-describedby="basic-addon1">  
                         
                         <div class="col-1">
                             <i class="fa-solid fa-microphone"></i>
