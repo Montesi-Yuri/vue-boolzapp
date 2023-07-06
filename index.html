@@ -86,15 +86,14 @@
                     <div class="left-main">
                         <ul class="h-100 overflow-auto">
 
-                            <li class="d-flex p-2" v-for="contact in contacts">
+                            <li class="d-flex p-2 border-bottom align-items-center" v-for="contact in contacts">
                                 <div class="user-image">
                                     <img :src="contact.avatar" :alt="contact.name">
                                 </div>
                                 <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">{{contact.name}}</p>
+                                    <p class="ms-2 m-0 fw-semibold">{{contact.name}}</p>
                                 </div>
                             </li>
-                            
 
                         </ul>
                     </div>
