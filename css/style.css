@@ -57,14 +57,12 @@ main{
 
 .right-main{
     background-image: url(../img/mine.jpg);
+    height: calc( 100% - 130px);
+    width: 100%;
 }
 
 .right-footer{
     background-color: #F3EEEA;
-}
-
-.right-main{
-    height: calc( 100% - 130px);
 }
 
 .received{

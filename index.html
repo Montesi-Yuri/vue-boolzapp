@@ -86,7 +86,7 @@
                     <div class="left-main">
                         <ul class="h-100 overflow-auto">
 
-                            <li class="d-flex p-2 border-bottom align-items-center" v-for="contact in contacts">
+                            <li  class="d-flex p-2 border-bottom align-items-center" v-for="(contact, i) in contacts" @click="showChat(i)">
                                 <div class="user-image">
                                     <img :src="contact.avatar" :alt="contact.name">
                                 </div>
@@ -100,7 +100,7 @@
                 </div>
 
 
-                <div class="right-side col-7 p-0">
+                <div class="right-side h-100 col-7 p-0">
 
                     <div class="right-header">
                         <div class="d-flex p-2 my-custom-lh justify-content-between">
@@ -125,55 +125,20 @@
 
                     <div class="right-main overflow-auto">
 
-                        <div class="chat py-2 px-4">
+                        <div class="chat py-2 px-4" v-for="(singleContact, i) in contacts">
 
-                            <div class="received">
-                                <span>
-                                    Ciao!
-                                </span>
-                            </div>
-                            
-                            <div class="sent">
-                                <span>
-                                    Ciao!
-                                </span>
-                            </div>
-                            <div class="received">
-                                <span>
-                                    hello, how are u? 
-                                    camaleonte camaleonte camaleonte camaleonte camaleonte camaleonte camaleonte camaleonte camaleonte camaleonte camaleonte
-                                </span>
-                            </div>
-                            
-                            <div class="sent">
-                                <span>
-                                    Ciao!
-                                    camaleonte camaleonte camaleonte camaleonte camaleonte camaleonte camaleonte camaleonte camaleonte camaleonte camaleonte
-                                </span>
-                            </div>
-                            <div class="received">
-                                <span>
-                                    Ciao!
-                                </span>
-                            </div>
-                            
-                            <div class="sent">
-                                <span>
-                                    Ciao!
-                                </span>
-                            </div>
-                            <div class="received">
-                                <span>
-                                    Ciao!
-                                </span>
-                            </div>
-                            
-                            <div class="sent">
-                                <span>
-                                    Ciao!
-                                </span>
-                            </div>
-                            
+                            <template v-for="singleMessage in singleContact.messages" >
+
+                                <div :class=" singleContact.visible == false ? 'd-none' : '' ">
+                                    <div :class="singleMessage.status">
+
+                                        <span>
+                                            {{singleMessage.message}}
+                                        </span>
+
+                                    </div>
+                                </div>
+                            </template>
                             
                         </div>
 

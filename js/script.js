@@ -11,7 +11,7 @@ const app = createApp({
                 {
                     name: 'Michele',
                     avatar: './img/avatar_1.jpg',
-                    visible: true,
+                    visible: false,
                     messages: [
                         {
                         date: '10/01/2020 15:30:55',
@@ -33,7 +33,7 @@ const app = createApp({
                 {
                     name: 'Fabio',
                     avatar: './img/avatar_2.jpg',
-                    visible: true,
+                    visible: false,
                     messages: [
                         {
                         date: '20/03/2020 16:30:00',
@@ -55,7 +55,7 @@ const app = createApp({
                 {
                     name: 'Samuele',
                     avatar: './img/avatar_3.jpg',
-                    visible: true,
+                    visible: false,
                     messages: [
                         {
                         date: '28/03/2020 10:10:40',
@@ -77,7 +77,7 @@ const app = createApp({
                 {
                     name: 'Alessandro B.',
                     avatar: './img/avatar_4.jpg',
-                    visible: true,
+                    visible: false,
                     messages: [
                         {
                         date: '10/01/2020 15:30:55',
@@ -94,7 +94,7 @@ const app = createApp({
                 {
                     name: 'Alessandro L.',
                     avatar: './img/avatar_5.jpg',
-                    visible: true,
+                    visible: false,
                     messages: [
                         {
                         date: '10/01/2020 15:30:55',
@@ -111,7 +111,7 @@ const app = createApp({
                 {
                     name: 'Claudia',
                     avatar: './img/avatar_6.jpg',
-                    visible: true,
+                    visible: false,
                     messages: [
                         {
                         date: '10/01/2020 15:30:55',
@@ -133,7 +133,7 @@ const app = createApp({
                 {
                     name: 'Federico',
                     avatar: './img/avatar_7.jpg',
-                    visible: true,
+                    visible: false,
                     messages: [
                         {
                         date: '10/01/2020 15:30:55',
@@ -150,7 +150,7 @@ const app = createApp({
                 {
                     name: 'Davide',
                     avatar: './img/avatar_8.jpg',
-                    visible: true,
+                    visible: false,
                     messages: [
                         {
                         date: '10/01/2020 15:30:55',
@@ -169,8 +169,21 @@ const app = createApp({
                         }
                     ],
                 }
-            ]
+            ],
+            activeChat: 0,
         }
+    },
+    methods:{
+        showChat(index){
+            this.contacts[this.activeChat].visible = false;
+            this.contacts[index].visible = true;
+            this.activeChat = index;
+            console.log('cliccata chat')
+        }
+    },
+    mounted(){
+        this.contacts[0].visible = true;
+        console.log(this.contacts[0].visible)
     }
 })
 app.mount('#app');
