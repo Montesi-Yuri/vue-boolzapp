@@ -1,5 +1,5 @@
 /* 
-GENERAL
+    GENERAL
 */
 
 li{
@@ -30,6 +30,10 @@ main{
 }
 
 
+/* 
+    LEFT SIDE
+ */
+
 .left-main{
     height: calc(100% - 200px);
 }
@@ -44,4 +48,47 @@ main{
 
 .my-custom-lh{
     line-height: 60px;
+}
+
+
+/* 
+    RIGHT SIDE
+ */
+
+.right-main{
+    background-image: url(../img/mine.jpg);
+}
+
+.right-footer{
+    background-color: #F3EEEA;
+}
+
+.right-main{
+    height: calc( 100% - 130px);
+}
+
+.received{
+    display: flex;
+    margin-top: 10px;
+    word-break: break-word;
+}
+.received > span{
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 300px;
+}
+
+.sent{
+    display: flex;
+    margin-top: 10px;
+    justify-content: end;
+    word-break: break-word;
+}
+
+.sent span{
+    background: lightgreen;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 300px;
 }
