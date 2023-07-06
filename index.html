@@ -85,126 +85,16 @@
                     <!-- CONTACTS LIST -->
                     <div class="left-main">
                         <ul class="h-100 overflow-auto">
-                            <li class="d-flex p-2">
+
+                            <li class="d-flex p-2" v-for="contact in contacts">
                                 <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
+                                    <img :src="contact.avatar" :alt="contact.name">
                                 </div>
                                 <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
+                                    <p class="ms-2 my-custom-lh fw-semibold">{{contact.name}}</p>
                                 </div>
                             </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-2">
-                                <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
-                                </div>
-                                <div>
-                                    <p class="ms-2 my-custom-lh fw-semibold">Michele</p>
-                                </div>
-                            </li>
+                            
 
                         </ul>
                     </div>
