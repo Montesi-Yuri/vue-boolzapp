@@ -50,6 +50,10 @@ main{
     line-height: 60px;
 }
 
+.contact{
+    cursor: pointer;
+}
+
 
 /* 
     RIGHT SIDE

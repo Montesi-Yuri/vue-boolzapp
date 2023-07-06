@@ -170,20 +170,27 @@ const app = createApp({
                     ],
                 }
             ],
-            activeChat: 0,
+            activeChat: {
+                id: 0,
+                name: 'Michele',
+                avatar: './img/avatar_1.jpg',
+            }
         }
     },
     methods:{
         showChat(index){
-            this.contacts[this.activeChat].visible = false;
+            this.contacts[this.activeChat.id].visible = false;
             this.contacts[index].visible = true;
-            this.activeChat = index;
+
+            this.activeChat.id = index;
+            this.activeChat.name = this.contacts[index].name;
+            this.activeChat.avatar = this.contacts[index].avatar;
+
             console.log('cliccata chat')
         }
     },
     mounted(){
         this.contacts[0].visible = true;
-        console.log(this.contacts[0].visible)
     }
 })
 app.mount('#app');

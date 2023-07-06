@@ -70,7 +70,7 @@
                             
                         </div>
 
-                        <!-- CHAT SEARCH BAR -->
+                        <!-- CONTACTS SEARCH BAR -->
                         <div class="p-2">
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1">
@@ -86,7 +86,7 @@
                     <div class="left-main">
                         <ul class="h-100 overflow-auto">
 
-                            <li  class="d-flex p-2 border-bottom align-items-center" v-for="(contact, i) in contacts" @click="showChat(i)">
+                            <li  class="contact d-flex p-2 border-bottom align-items-center" v-for="(contact, i) in contacts" @click="showChat(i)">
                                 <div class="user-image">
                                     <img :src="contact.avatar" :alt="contact.name">
                                 </div>
@@ -102,16 +102,16 @@
 
                 <div class="right-side h-100 col-7 p-0">
 
+                    <!-- CONTACT INFO -->
                     <div class="right-header">
                         <div class="d-flex p-2 my-custom-lh justify-content-between">
 
                             <div class="d-flex">
                                 <div class="user-image">
-                                    <img src="img/avatar_1.jpg" alt="user img">
+                                    <img :src="activeChat.avatar" :alt="activeChat.name">
                                 </div>
                                 <div class="lh-1 ms-2 align-self-center">
-                                    <p class="fw-semibold m-0">Michele</p>
-                                    <!-- <p class="m-0">ultimo accesso alle 11</p> -->
+                                    <p class="fw-semibold m-0">{{activeChat.name}}</p>
                                 </div>
                             </div>
                             
@@ -123,13 +123,14 @@
                         </div>
                     </div>
 
+                    <!-- CHAT -->
                     <div class="right-main overflow-auto">
 
-                        <div class="chat py-2 px-4" v-for="(singleContact, i) in contacts">
+                        <div v-for="(singleContact, i) in contacts">
 
                             <template v-for="singleMessage in singleContact.messages" >
 
-                                <div :class=" singleContact.visible == false ? 'd-none' : '' ">
+                                <div :class=" singleContact.visible == false ? 'd-none' : '' " class="py-2 px-4">
                                     <div :class="singleMessage.status">
 
                                         <span>
@@ -139,11 +140,10 @@
                                     </div>
                                 </div>
                             </template>
-                            
                         </div>
-
                     </div>
 
+                    <!-- SEND MESSAGE -->
                     <div class="right-footer d-flex p-1 py-2 align-items-center text-center">
                         <div class="col-1">
                             <i class="fa-regular fa-face-smile"></i>
