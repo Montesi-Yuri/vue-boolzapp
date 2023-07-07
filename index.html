@@ -76,7 +76,7 @@
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </span>
-                                <input @keyup.enter="contactsFilter()" type="text" class="form-control" v-model="searchContact" placeholder="cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                                <input @keyup="contactsFilter()" type="text" class="form-control" v-model="searchContact" placeholder="cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                               </div>
                         </div>
 
@@ -86,7 +86,9 @@
                     <div class="left-main">
                         <ul class="h-100 overflow-auto">
 
-                            <li  class="contact d-flex p-2 border-bottom align-items-center" v-for="(contact, i) in contacts" @click="showChat(i)" :class="searchResult" >
+                            <li  class="contact d-flex p-2 border-bottom align-items-center" v-for="(contact, i) in contacts" @click="showChat(i)"
+                                :class="contact.visible == false ? 'd-none' : '' " >
+
                                 <div class="user-image">
                                     <img :src="contact.avatar" :alt="contact.name">
                                 </div>

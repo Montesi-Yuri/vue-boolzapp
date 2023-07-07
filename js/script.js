@@ -220,23 +220,29 @@ const app = createApp({
                 });
             }, 1000);
         },
-        // contactsFilter(){
+        contactsFilter(){
             
-        //     for (let i = 0; i < this.contacts.length; i++) {
-        //         let contact = this.contacts[i];
-                 
-        //         if(contact.name.toLowerCase().includes(this.searchContact)){
-        //             console.log(contact.name, 'lo contiene')
-        //             console.log(contact.name.toLowerCase().includes(this.searchContact))
-        //             this.searchResult = 'present';
-        //         }
-        //         else{
-        //             console.log(contact.name,'non lo contiene')
-        //             this.searchResult = 'absent';
-        //         }
-        //     }
-           
-        // }
+            if(this.searchContact.trim() == ''){
+                for (let i = 0; i < this.contacts.length; i++) {
+                    const contact = this.contacts[i];
+                    contact.visible = true;
+                }
+            }
+            else{
+                for (let i = 0; i < this.contacts.length; i++) {
+                    let contact = this.contacts[i];
+                     
+                    if(contact.name.toLowerCase().includes(this.searchContact)){
+                        console.log(contact.name, 'lo contiene')
+                    }
+                    else{
+                        console.log(contact.name,'non lo contiene')
+                        contact.visible = false;
+                        console.log(contact.visible)
+                    }
+                }
+            }
+        }
     },
     mounted(){
         this.contacts[0].visible = true;
