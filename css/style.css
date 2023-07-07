@@ -98,3 +98,7 @@ main{
     padding: 10px;
     max-width: 300px;
 }
+
+.my-fs-xs{
+    font-size: 11px;
+}

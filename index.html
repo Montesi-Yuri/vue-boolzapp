@@ -24,6 +24,9 @@
 
         <!-- VUE JS -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        
+        <!-- LUXON -->
+        <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
 
     </head>
 
@@ -34,6 +37,7 @@
 
             <div id="app" class="app-container container bg-light row p-0 overflow-hidden">
 
+                <!-- LEFT SIDE -->
                 <div class="left-side h-100 border-end col-5 p-0">
 
                     <div class="left-header border-bottom">
@@ -86,7 +90,7 @@
                     <div class="left-main">
                         <ul class="h-100 overflow-auto">
 
-                            <li  class="contact d-flex p-2 border-bottom align-items-center" v-for="(contact, i) in contacts" @click="showChat(i)"
+                            <li  class="contact d-flex p-2 border-bottom align-items-center" v-for="(contact, i) in contacts" @click="showChat(i), lastAccessFunct() "
                                 :class="contact.visible == false ? 'd-none' : '' " >
 
                                 <div class="user-image">
@@ -101,7 +105,7 @@
                     </div>
                 </div>
 
-
+                <!-- RIGHT SIDE -->
                 <div class="right-side h-100 col-7 p-0">
 
                     <!-- CONTACT INFO -->
@@ -114,6 +118,7 @@
                                 </div>
                                 <div class="lh-1 ms-2 align-self-center">
                                     <p class="fw-semibold m-0">{{activeChat.name}}</p>
+                                    <p class="mt-1 m-0 my-fs-xs">ultimo accesso: {{lastMessage.date}}</p>
                                 </div>
                             </div>
                             

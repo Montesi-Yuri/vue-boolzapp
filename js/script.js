@@ -194,7 +194,9 @@ const app = createApp({
                     status: 'received'
                     }
                 ],
-            }
+            },
+            lastMessage: '',
+            activeChatLenght: '0',
         }
     },
     methods:{
@@ -221,7 +223,6 @@ const app = createApp({
             }, 1000);
         },
         contactsFilter(){
-            
             if(this.searchContact.trim() == ''){
                 for (let i = 0; i < this.contacts.length; i++) {
                     const contact = this.contacts[i];
@@ -231,7 +232,6 @@ const app = createApp({
             else{
                 for (let i = 0; i < this.contacts.length; i++) {
                     let contact = this.contacts[i];
-                     
                     if(contact.name.toLowerCase().includes(this.searchContact)){
                         console.log(contact.name, 'lo contiene')
                     }
@@ -242,10 +242,17 @@ const app = createApp({
                     }
                 }
             }
+        },
+        lastAccessFunct(){
+            this.activeChatLenght = this.activeChat.messages.length;
+            this.activeChatLenght = this.activeChatLenght - 1;
+            this.lastMessage = this.activeChat.messages[this.activeChatLenght];
+            console.log('last Message', this.lastMessage)
         }
     },
     mounted(){
-        this.contacts[0].visible = true;
+        
     }
 })
 app.mount('#app');
+
