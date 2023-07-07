@@ -76,7 +76,7 @@
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </span>
-                                <input type="text" class="form-control" placeholder="cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                                <input @keyup.enter="contactsFilter()" type="text" class="form-control" v-model="searchContact" placeholder="cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                               </div>
                         </div>
 
@@ -86,7 +86,7 @@
                     <div class="left-main">
                         <ul class="h-100 overflow-auto">
 
-                            <li  class="contact d-flex p-2 border-bottom align-items-center" v-for="(contact, i) in contacts" @click="showChat(i)">
+                            <li  class="contact d-flex p-2 border-bottom align-items-center" v-for="(contact, i) in contacts" @click="showChat(i)" :class="searchResult" >
                                 <div class="user-image">
                                     <img :src="contact.avatar" :alt="contact.name">
                                 </div>
@@ -126,11 +126,11 @@
                     <!-- CHAT -->
                     <div class="right-main overflow-auto">
 
-                        <div v-for="(singleContact, i) in contacts">
+                        <div >
 
-                            <template v-for="singleMessage in singleContact.messages" >
+                            <template v-for="singleMessage in activeChat.messages" >
 
-                                <div :class=" singleContact.visible == false ? 'd-none' : '' " class="py-2 px-4">
+                                <div class="py-2 px-4">
                                     <div :class="singleMessage.status">
 
                                         <span>
@@ -157,9 +157,7 @@
                     </div>
 
                 </div>
-
             </div>
-
         </main>
 
         <!-- JS -->

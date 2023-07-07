@@ -54,6 +54,10 @@ main{
     cursor: pointer;
 }
 
+.absent{
+    display: none;
+}
+
 
 /* 
     RIGHT SIDE
