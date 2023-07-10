@@ -7,9 +7,6 @@ const { createApp } = Vue;
 const app = createApp({
     data(){
         return{
-            inputMessage: '',
-            searchContact: '',
-            searchResult: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -195,6 +192,9 @@ const app = createApp({
                     }
                 ],
             },
+            inputMessage: '',
+            searchContact: '',
+            searchResult: '',
             lastMessage: '',
             activeChatLenght: '0',
             dropdownToggle: 'd-none',
@@ -234,13 +234,8 @@ const app = createApp({
             else{
                 for (let i = 0; i < this.contacts.length; i++) {
                     let contact = this.contacts[i];
-                    if(contact.name.toLowerCase().includes(this.searchContact)){
-                        console.log(contact.name, 'lo contiene')
-                    }
-                    else{
-                        console.log(contact.name,'non lo contiene')
+                    if(!contact.name.toLowerCase().includes(this.searchContact)){
                         contact.visible = false;
-                        console.log(contact.visible)
                     }
                 }
             }
