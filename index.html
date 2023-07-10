@@ -83,7 +83,7 @@
                         <ul class="h-100 overflow-auto">
                             <li  class="cursor d-flex p-2 border-bottom align-items-center" v-for="(contact, i) in contacts" @click="showChat(i), lastAccessFunct() "
                                 :class="contact.visible == false ? 'd-none' : '' " >
-                                
+
                                 <div class="user-image">
                                     <img :src="contact.avatar" :alt="contact.name">
                                 </div>
@@ -123,39 +123,24 @@
 
                     <!-- CHAT -->
                     <div class="right-main overflow-auto">
+                        <template v-for="(singleMessage, i) in activeChat.messages" >
+                            <div class="py-2 px-4" >
+                                <div :class="singleMessage.status">
 
-                        <div >
-
-                            <template v-for="(singleMessage, i) in activeChat.messages" >
-
-                                <div class="py-2 px-4" >
-                                    <div :class="singleMessage.status">
-
-                                        <span class="position-relative" @mouseenter="dropdownMessageOn(i)" @mouseleave="dropdownMessageOff(i)">
-
-                                            {{singleMessage.message}}
-                                            
-                                            <i class="fa-solid fa-caret-down" :class="dropdownToggle" ></i>
-
-                                            <span class="msg-time">
-                                                {{singleMessage.date}}
-                                            </span>
-                                             
+                                    <span class="position-relative" @mouseenter="dropdownMessageOn(i)" @mouseleave="dropdownMessageOff(i)">
+                                        {{singleMessage.message}}
+                                        <i class="fa-solid fa-caret-down" :class="dropdownToggle" ></i>
+                                        <span class="msg-time">
+                                            {{singleMessage.date}}
                                         </span>
-
-                                        
-
-                                          
-                                        
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Delete message</a></li>
-                                            <li><a class="dropdown-item" href="#">Message info</a></li>
-                                        </ul>
-
-                                    </div>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Delete message</a></li>
+                                        <li><a class="dropdown-item" href="#">Message info</a></li>
+                                    </ul>
                                 </div>
-                            </template>
-                        </div>
+                            </div>
+                        </template>
                     </div>
 
                     <!-- SEND MESSAGE -->
@@ -163,14 +148,11 @@
                         <div class="col-1">
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
-                        
                         <input @keyup.enter="newMessage()" type="text" v-model="inputMessage" class="form-control col" placeholder="scrivi un messaggio" aria-label="Username" aria-describedby="basic-addon1">  
-                        
                         <div class="col-1">
                             <i class="fa-solid fa-microphone"></i>
                         </div>
                     </div>
-
                 </div>
             </div>
         </main>

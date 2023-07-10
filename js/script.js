@@ -264,8 +264,6 @@ const app = createApp({
                 this.activeChat.messages[i].status = 'received';
             }
         },
-        
-        
     },
     mounted(){
         for (let i = 0; i < this.activeChat.messages.length; i++) {
