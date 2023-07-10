@@ -26,8 +26,8 @@
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         
         <!-- LUXON -->
-        <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.3.0/luxon.min.js" integrity="sha512-KKbQg5o92MwtJKR9sfm/HkREzfyzNMiKPIQ7i7SZOxwEdiNCm4Svayn2DBq7MKEdrqPJUOSIpy1v6PpFlCQ0YA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       
     </head>
 
     <body>
@@ -39,11 +39,9 @@
 
                 <!-- LEFT SIDE -->
                 <div class="left-side h-100 border-end col-5 p-0">
-
                     <div class="left-header border-bottom">
 
                         <div class="d-flex justify-content-between p-2 my-custom-lh">
-                            
                             <!-- USER PROFILE -->
                             <div class="d-flex">
                                 <div class="user-image">
@@ -53,27 +51,22 @@
                                     <p class="m-0 my-custom-lh fw-semibold">Sofia</p>
                                 </div>
                             </div>
-
                             <div class="text-light-emphasis">
                                 <i class="fa-solid fa-circle-notch fa-lg px-2"></i>
                                 <i class="fa-solid fa-message fa-lg px-2"></i>
                                 <i class="fa-solid fa-ellipsis-vertical fa-lg px-2"></i>
                             </div>
                         </div>
-
                         <!-- NOTIFICATIONS BANNER -->
                         <div class="bg-primary-subtle d-flex py-2">
                             <div>
                                 <i class="fa-solid fa-bell-slash p-3 rounded-circle text-primary-emphasis bg-light m-2"></i>
                             </div>
-
                             <div class="m-2">
                                 <p class="m-0">Ricevi notifiche di nuovi messaggi</p>
                                 <a href="" class="text-black">Attiva notifiche desktop</a>
                             </div>
-                            
                         </div>
-
                         <!-- CONTACTS SEARCH BAR -->
                         <div class="p-2">
                             <div class="input-group">
@@ -83,24 +76,22 @@
                                 <input @keyup="contactsFilter()" type="text" class="form-control" v-model="searchContact" placeholder="cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                               </div>
                         </div>
-
                     </div>
 
                     <!-- CONTACTS LIST -->
                     <div class="left-main">
                         <ul class="h-100 overflow-auto">
-
-                            <li  class="contact d-flex p-2 border-bottom align-items-center" v-for="(contact, i) in contacts" @click="showChat(i), lastAccessFunct() "
+                            <li  class="cursor d-flex p-2 border-bottom align-items-center" v-for="(contact, i) in contacts" @click="showChat(i), lastAccessFunct() "
                                 :class="contact.visible == false ? 'd-none' : '' " >
-
+                                
                                 <div class="user-image">
                                     <img :src="contact.avatar" :alt="contact.name">
                                 </div>
                                 <div>
                                     <p class="ms-2 m-0 fw-semibold">{{contact.name}}</p>
+                                    <p class="ms-2 m-0 my-fs-xs">ultimo accesso: {{contacts[i].messages[1].date}}</p>
                                 </div>
                             </li>
-
                         </ul>
                     </div>
                 </div>
@@ -135,14 +126,31 @@
 
                         <div >
 
-                            <template v-for="singleMessage in activeChat.messages" >
+                            <template v-for="(singleMessage, i) in activeChat.messages" >
 
-                                <div class="py-2 px-4">
+                                <div class="py-2 px-4" >
                                     <div :class="singleMessage.status">
 
-                                        <span>
+                                        <span class="position-relative" @mouseenter="dropdownMessageOn(i)" @mouseleave="dropdownMessageOff(i)">
+
                                             {{singleMessage.message}}
+                                            
+                                            <i class="fa-solid fa-caret-down" :class="dropdownToggle" ></i>
+
+                                            <span class="msg-time">
+                                                {{singleMessage.date}}
+                                            </span>
+                                             
                                         </span>
+
+                                        
+
+                                          
+                                        
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Delete message</a></li>
+                                            <li><a class="dropdown-item" href="#">Message info</a></li>
+                                        </ul>
 
                                     </div>
                                 </div>

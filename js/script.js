@@ -197,6 +197,8 @@ const app = createApp({
             },
             lastMessage: '',
             activeChatLenght: '0',
+            dropdownToggle: 'd-none',
+            contactLastMessage:'',
         }
     },
     methods:{
@@ -248,11 +250,38 @@ const app = createApp({
             this.activeChatLenght = this.activeChatLenght - 1;
             this.lastMessage = this.activeChat.messages[this.activeChatLenght];
             console.log('last Message', this.lastMessage)
-        }
+        },
+        dropdownMessageOn(toggleI){
+            console.log(toggleI, 'i')
+            console.log(this.activeChat.messages[toggleI].messageId, 'msg-i')
+            if (toggleI == this.activeChat.messages[toggleI].messageId) {
+                this.dropdownToggle = 'd-inline-block';
+            }
+        },
+        dropdownMessageOff(i){
+            
+            this.dropdownToggle = 'd-none';
+            console.log(this.activeChat.messages[i].status)
+            if(this.activeChat.messages[i].status.trim().includes('sent')){
+                this.activeChat.messages[i].status = 'sent';
+            }
+            else{
+                this.activeChat.messages[i].status = 'received';
+            }
+        },
+        
+        
     },
     mounted(){
-        
+        for (let i = 0; i < this.activeChat.messages.length; i++) {
+            let message = this.activeChat.messages[i];
+            message = {
+                date: '10/01/2020 16:15:22',
+                message: 'Tutto fatto!',
+                status: 'received',
+                messageId: i
+                }
+        }
     }
 })
 app.mount('#app');
-

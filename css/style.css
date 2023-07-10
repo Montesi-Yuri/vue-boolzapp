@@ -50,7 +50,7 @@ main{
     line-height: 60px;
 }
 
-.contact{
+.cursor{
     cursor: pointer;
 }
 
@@ -92,7 +92,7 @@ main{
     word-break: break-word;
 }
 
-.sent span{
+.sent > span{
     background: lightgreen;
     border-radius: 5px;
     padding: 10px;
@@ -101,4 +101,14 @@ main{
 
 .my-fs-xs{
     font-size: 11px;
+}
+
+.msg-time{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 9px;
+    padding: 0;
+    margin: 0;
+    padding-right: 5px;
 }
